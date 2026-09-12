@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="כרטיס ביקור דיגיטלי אישי - סטודנט למדעי המחשב ומפתח Front-End">
-  <title>כרטיס ביקור דיגיטלי | אורי שדה</title>
+  <title>כרטיס ביקור דיגיטלי | אורי כהן</title>
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -18,8 +18,12 @@
   <!-- Checkbox state controls light/dark mode styles via CSS selectors -->
   <input type="checkbox" id="theme-toggle" class="theme-toggle-input" aria-label="החלף מצב תצוגה כהה או בהיר">
 
-  <!-- Main Page Container -->
+  <!-- Main Page Container with Ambient Lighting Effects -->
   <div class="page-container">
+    <!-- Ambient glowing backgrounds for modern glassmorphic look -->
+    <div class="ambient-orb orb-1" aria-hidden="true"></div>
+    <div class="ambient-orb orb-2" aria-hidden="true"></div>
+    <div class="ambient-orb orb-3" aria-hidden="true"></div>
 
     <!-- Digital Business Card Wrapper -->
     <main class="business-card" role="main">
@@ -50,12 +54,12 @@
       <header class="profile-header">
         <div class="avatar-container">
           <!-- Profile Picture (SVG Vector Illustration) -->
-          <img src="assets/avatar.svg" alt="תמונת פרופיל של אורי שדה" class="profile-avatar" width="130" height="130">
+          <img src="assets/avatar.svg" alt="תמונת פרופיל של אורי כהן" class="profile-avatar" width="130" height="130">
           <span class="avatar-badge" title="Verified Developer" aria-label="מפתח מאומת">✓</span>
         </div>
 
         <div class="profile-intro">
-          <h1 class="profile-name">אורי שדה</h1>
+          <h1 class="profile-name">אורי כהן</h1>
           <p class="profile-title">סטודנט למדעי המחשב & מפתח Front-End</p>
           <div class="location-badge">
             <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -239,13 +243,13 @@
 
           <!-- LinkedIn Link -->
           <li class="contact-item">
-            <a href="https://linkedin.com/in/ori-sade" target="_blank" rel="noopener noreferrer" class="contact-link" title="פרופיל LinkedIn">
+            <a href="https://linkedin.com/in/ori-cohen" target="_blank" rel="noopener noreferrer" class="contact-link" title="פרופיל LinkedIn">
               <div class="contact-icon-box">
                 <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </div>
               <div class="contact-details">
                 <span class="contact-label">פרופיל LinkedIn:</span>
-                <span class="contact-value" dir="ltr">linkedin.com/in/ori-sade</span>
+                <span class="contact-value" dir="ltr">linkedin.com/in/ori-cohen</span>
               </div>
             </a>
           </li>

@@ -1,111 +1,137 @@
 /* ==========================================================================
-   DIGITAL BUSINESS CARD - STYLESHEET
-   Pure HTML5 & CSS3 Implementation (Zero JavaScript)
-   Supports Light & Dark Modes, Full Responsiveness, RTL Layout
+   DIGITAL BUSINESS CARD - ULTRA MODERN STYLESHEET
+   Pure HTML5 & CSS3 Implementation (Strictly Zero JavaScript)
+   High-End Glassmorphism, Ambient Glow, Responsive & Accessible
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Design Tokens & CSS Custom Properties
+   0. Web Fonts Import (Hebrew Rubik + Latin Plus Jakarta Sans)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Custom Properties (Light Mode Default)
    -------------------------------------------------------------------------- */
 :root {
-  /* Color Palette - Light Mode (Default) */
-  --bg-body-gradient: radial-gradient(circle at 50% 0%, #e2e8f0 0%, #f1f5f9 100%);
-  --bg-page: #f1f5f9;
-  --bg-card: #ffffff;
-  --bg-card-glass: rgba(255, 255, 255, 0.92);
-  --bg-subtle: #f8fafc;
-  --bg-subtle-hover: #eff6ff;
-  --border-color: #e2e8f0;
-  --border-subtle: #f1f5f9;
-  --border-hover: #93c5fd;
+  /* Page Background & Atmosphere */
+  --bg-page: #f8fafc;
+  --bg-page-gradient: radial-gradient(circle at 50% 0%, #e0e7ff 0%, #f1f5f9 60%, #f8fafc 100%);
+  
+  /* Ambient Orbs */
+  --orb-1-color: rgba(99, 102, 241, 0.25);
+  --orb-2-color: rgba(56, 189, 248, 0.22);
+  --orb-3-color: rgba(168, 85, 247, 0.18);
 
-  /* Typography Colors */
+  /* Card Surfaces (Glassmorphic) */
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-border: rgba(226, 232, 240, 0.9);
+  --bg-subtle: rgba(248, 250, 252, 0.85);
+  --bg-subtle-hover: rgba(238, 242, 255, 0.95);
+  --border-color: #e2e8f0;
+  --border-hover: #818cf8;
+
+  /* Typography & Gradients */
   --text-main: #0f172a;
   --text-muted: #475569;
   --text-light: #64748b;
+  --name-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #6366f1 100%);
+  --title-color: #2563eb;
 
   /* Brand Accents */
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-light: rgba(37, 99, 235, 0.08);
-  --accent-focus: rgba(37, 99, 235, 0.35);
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+  --accent-light: rgba(59, 130, 246, 0.08);
 
-  /* Status Colors */
-  --status-bg: #dcfce7;
-  --status-text: #166534;
+  /* Status Indicators */
+  --status-bg: rgba(220, 252, 231, 0.85);
+  --status-text: #15803d;
   --status-dot: #22c55e;
-  --badge-bg: #eff6ff;
-  --badge-text: #1d4ed8;
-  --badge-border: #bfdbfe;
+  --badge-bg: rgba(238, 242, 255, 0.9);
+  --badge-text: #4f46e5;
+  --badge-border: rgba(199, 210, 254, 0.8);
 
-  /* Toggle Button Specifics */
+  /* Toggle Switch */
   --toggle-bg: #e2e8f0;
   --toggle-thumb-bg: #ffffff;
   --toggle-border: #cbd5e1;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(15, 23, 42, 0.05);
-  --shadow-card: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(15, 23, 42, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-card: 0 25px 60px -15px rgba(30, 58, 138, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  --shadow-btn: 0 8px 20px -3px rgba(37, 99, 235, 0.35);
+  --avatar-glow: 0 0 25px rgba(59, 130, 246, 0.3);
 
-  /* Spacing & Transitions */
+  /* Radii & Timing */
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --------------------------------------------------------------------------
-   2. Dark Mode Overrides (Pure CSS via Checkbox State)
+   2. Ultra-Cool Dark Mode Overrides (Cyber-Modern Theme)
    Triggered when #theme-toggle is :checked
    -------------------------------------------------------------------------- */
 body:has(#theme-toggle:checked),
 #theme-toggle:checked ~ .page-container {
-  --bg-body-gradient: radial-gradient(circle at 50% 0%, #1e293b 0%, #090d16 100%);
-  --bg-page: #090d16;
-  --bg-card: #111827;
-  --bg-card-glass: rgba(17, 24, 39, 0.92);
-  --bg-subtle: #172235;
-  --bg-subtle-hover: rgba(59, 130, 246, 0.12);
-  --border-color: #26354a;
-  --border-subtle: #1e293b;
-  --border-hover: #3b82f6;
+  /* Deep Modern Dark Background */
+  --bg-page: #060913;
+  --bg-page-gradient: radial-gradient(circle at 50% -10%, #171b30 0%, #0a0d1a 50%, #05070e 100%);
 
-  /* Dark Mode Typography */
+  /* Radiant Neon Ambient Orbs */
+  --orb-1-color: rgba(79, 70, 229, 0.22);
+  --orb-2-color: rgba(14, 165, 233, 0.18);
+  --orb-3-color: rgba(168, 85, 247, 0.16);
+
+  /* Glass Surfaces */
+  --bg-card: rgba(13, 19, 33, 0.82);
+  --bg-card-border: rgba(255, 255, 255, 0.08);
+  --bg-subtle: rgba(19, 28, 48, 0.65);
+  --bg-subtle-hover: rgba(30, 43, 72, 0.85);
+  --border-color: rgba(255, 255, 255, 0.09);
+  --border-hover: #60a5fa;
+
+  /* Typography & Gradients */
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-light: #cbd5e1;
+  --name-gradient: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #38bdf8 100%);
+  --title-color: #60a5fa;
 
-  /* Dark Mode Accents */
+  /* Brand Accents */
   --accent: #3b82f6;
   --accent-hover: #60a5fa;
-  --accent-light: rgba(59, 130, 246, 0.18);
-  --accent-focus: rgba(96, 165, 250, 0.4);
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
+  --accent-light: rgba(59, 130, 246, 0.15);
 
-  /* Dark Mode Status */
-  --status-bg: rgba(34, 197, 94, 0.15);
+  /* Status Indicators */
+  --status-bg: rgba(34, 197, 94, 0.12);
   --status-text: #86efac;
   --status-dot: #4ade80;
-  --badge-bg: rgba(59, 130, 246, 0.18);
-  --badge-text: #93c5fd;
-  --badge-border: rgba(59, 130, 246, 0.35);
+  --badge-bg: rgba(99, 102, 241, 0.16);
+  --badge-text: #a5b4fc;
+  --badge-border: rgba(99, 102, 241, 0.35);
 
-  /* Dark Mode Toggle */
+  /* Toggle Switch */
   --toggle-bg: #1e293b;
   --toggle-thumb-bg: #0f172a;
   --toggle-border: #334155;
 
-  /* Dark Mode Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-card: 0 25px 60px -12px rgba(0, 0, 0, 0.7);
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.6), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 25px 70px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  --shadow-btn: 0 8px 24px -3px rgba(59, 130, 246, 0.45);
+  --avatar-glow: 0 0 35px rgba(96, 165, 250, 0.4);
 }
 
 /* --------------------------------------------------------------------------
-   3. Global Reset & Base Styles
+   3. Global Reset & Base
    -------------------------------------------------------------------------- */
 *,
 *::before,
@@ -121,20 +147,19 @@ html {
 }
 
 body {
-  font-family: 'Rubik', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-  background: var(--bg-page);
+  font-family: 'Rubik', 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--bg-page);
   color: var(--text-main);
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* --------------------------------------------------------------------------
-   4. Pure CSS Theme Toggle Setup
+   4. Pure CSS Checkbox State Setup
    -------------------------------------------------------------------------- */
-/* Visually hide input while keeping it keyboard accessible */
 .theme-toggle-input {
   position: absolute;
   width: 1px;
@@ -147,45 +172,93 @@ body {
   border-width: 0;
 }
 
-/* Page Container (Full page backdrop) */
+/* --------------------------------------------------------------------------
+   5. Page Backdrop with Ambient Glowing Orbs
+   -------------------------------------------------------------------------- */
 .page-container {
   min-height: 100vh;
-  background: var(--bg-body-gradient);
-  background-attachment: fixed;
+  background: var(--bg-page-gradient);
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 40px 20px;
-  transition: background 0.3s ease;
+  padding: 50px 20px;
+  transition: background 0.4s ease;
 }
 
-/* Focus styles when toggling via keyboard Tab + Space/Enter */
-.theme-toggle-input:focus-visible ~ .page-container .theme-toggle-btn {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
+/* Ambient Glowing Background Orbs */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(85px);
+  transition: background 0.4s ease;
+}
+
+.orb-1 {
+  width: 480px;
+  height: 480px;
+  top: -100px;
+  right: -80px;
+  background: var(--orb-1-color);
+  animation: floatOrb 14s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+  width: 420px;
+  height: 420px;
+  bottom: 50px;
+  left: -120px;
+  background: var(--orb-2-color);
+  animation: floatOrb 18s ease-in-out infinite alternate-reverse;
+}
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  top: 40%;
+  left: 20%;
+  background: var(--orb-3-color);
+  animation: floatOrb 22s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, 40px) scale(1.08);
+  }
+  100% {
+    transform: translate(-20px, 25px) scale(0.95);
+  }
 }
 
 /* --------------------------------------------------------------------------
-   5. Business Card Main Container
+   6. Business Card Container (High-End Glassmorphism)
    -------------------------------------------------------------------------- */
 .business-card {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 760px;
-  background: var(--bg-card-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color);
+  max-width: 780px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--bg-card-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  padding: 36px;
+  padding: 42px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  gap: 34px;
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* --------------------------------------------------------------------------
-   6. Top Toolbar & Theme Switcher
+   7. Card Header Toolbar & Modern Theme Toggle
    -------------------------------------------------------------------------- */
 .card-toolbar {
   display: flex;
@@ -193,20 +266,21 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  padding-bottom: 20px;
+  padding-bottom: 22px;
   border-bottom: 1px solid var(--border-color);
 }
 
 .status-indicator {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   background: var(--status-bg);
   color: var(--status-text);
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: var(--radius-full);
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   transition: var(--transition);
 }
 
@@ -216,18 +290,19 @@ body {
   background-color: var(--status-dot);
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
-  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px var(--status-dot);
+  animation: radarPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-@keyframes pulse {
+@keyframes radarPulse {
   0%, 100% {
     transform: scale(1);
     opacity: 1;
   }
   50% {
-    transform: scale(1.18);
-    opacity: 0.75;
+    transform: scale(1.25);
+    opacity: 0.7;
+    box-shadow: 0 0 16px var(--status-dot);
   }
 }
 
@@ -235,15 +310,15 @@ body {
 .theme-toggle-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   background: var(--bg-subtle);
   border: 1px solid var(--border-color);
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: var(--radius-full);
   cursor: pointer;
   user-select: none;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-main);
   transition: var(--transition);
 }
@@ -251,12 +326,13 @@ body {
 .theme-toggle-btn:hover {
   background: var(--bg-subtle-hover);
   border-color: var(--border-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .toggle-track {
-  width: 44px;
-  height: 24px;
+  width: 46px;
+  height: 26px;
   background: var(--toggle-bg);
   border: 1px solid var(--toggle-border);
   border-radius: var(--radius-full);
@@ -268,34 +344,25 @@ body {
 }
 
 .toggle-thumb {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   background: var(--toggle-thumb-bg);
   border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(0);
 }
 
-/* In light mode: Sun visible, Moon hidden */
-.icon-sun {
-  display: inline;
-}
-.icon-moon {
-  display: none;
-}
-.text-to-dark {
-  display: inline;
-}
-.text-to-light {
-  display: none;
-}
+/* Light / Dark Mode Icon & Text Transitions */
+.icon-sun { display: inline; }
+.icon-moon { display: none; }
+.text-to-dark { display: inline; }
+.text-to-light { display: none; }
 
-/* In Dark mode: Move thumb and swap icons */
 body:has(#theme-toggle:checked) .toggle-thumb,
 #theme-toggle:checked ~ .page-container .toggle-thumb {
   transform: translateX(-20px);
@@ -319,49 +386,59 @@ body:has(#theme-toggle:checked) .text-to-light,
   display: inline;
 }
 
+/* Keyboard Focus indicator */
+.theme-toggle-input:focus-visible ~ .page-container .theme-toggle-btn {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
 /* --------------------------------------------------------------------------
-   7. Profile Header
+   8. Profile Header Section
    -------------------------------------------------------------------------- */
 .profile-header {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 30px;
 }
 
 .avatar-container {
   position: relative;
   flex-shrink: 0;
+  padding: 4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  box-shadow: var(--avatar-glow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.avatar-container:hover {
+  transform: scale(1.04) rotate(2deg);
 }
 
 .profile-avatar {
+  display: block;
   width: 124px;
   height: 124px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--bg-card);
-  box-shadow: 0 0 0 3px var(--accent), var(--shadow-md);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.profile-avatar:hover {
-  transform: scale(1.03) rotate(2deg);
+  border: 3px solid var(--bg-card);
 }
 
 .avatar-badge {
   position: absolute;
-  bottom: 6px;
-  left: 6px;
-  width: 26px;
-  height: 26px;
-  background: var(--accent);
+  bottom: 8px;
+  left: 8px;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
   color: #ffffff;
   border: 2px solid var(--bg-card);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 800;
   box-shadow: var(--shadow-sm);
 }
 
@@ -372,39 +449,43 @@ body:has(#theme-toggle:checked) .text-to-light,
 }
 
 .profile-name {
-  font-size: 2rem;
+  font-size: 2.35rem;
   font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  background: var(--name-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .profile-title {
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--title-color);
+  letter-spacing: -0.01em;
 }
 
 .location-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.9rem;
+  font-size: 0.925rem;
   color: var(--text-muted);
   margin-top: 4px;
 }
 
 .icon-inline {
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
 }
 
 /* --------------------------------------------------------------------------
-   8. Quick Action Buttons Group
+   9. Quick Action Buttons Group
    -------------------------------------------------------------------------- */
 .action-buttons-group {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
@@ -413,32 +494,37 @@ body:has(#theme-toggle:checked) .text-to-light,
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 12px 24px;
-  font-size: 0.975rem;
+  padding: 13px 28px;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: var(--radius-md);
   text-decoration: none;
   cursor: pointer;
   transition: var(--transition);
-  flex: 1 1 200px;
+  flex: 1 1 210px;
 }
 
 .btn-icon {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
+  transition: transform 0.25s ease;
+}
+
+.btn:hover .btn-icon {
+  transform: scale(1.15);
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: var(--accent-gradient);
   color: #ffffff;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.35);
+  box-shadow: var(--shadow-btn);
   border: 1px solid transparent;
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.45);
+  background: var(--accent-gradient-hover);
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 12px 28px -3px rgba(37, 99, 235, 0.55);
 }
 
 .btn-secondary {
@@ -451,35 +537,36 @@ body:has(#theme-toggle:checked) .text-to-light,
 .btn-secondary:hover {
   background: var(--bg-subtle-hover);
   border-color: var(--border-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.015);
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* --------------------------------------------------------------------------
-   9. Card Sections & Typography
+   10. Section Layout & Titles
    -------------------------------------------------------------------------- */
 .card-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding-top: 10px;
+  gap: 18px;
+  padding-top: 16px;
   border-top: 1px solid var(--border-color);
 }
 
 .section-title {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.35rem;
+  font-weight: 800;
   color: var(--text-main);
+  letter-spacing: -0.02em;
   display: inline-flex;
   align-items: center;
   gap: 10px;
 }
 
 .title-icon {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
 }
 
 /* About Section */
@@ -488,63 +575,81 @@ body:has(#theme-toggle:checked) .text-to-light,
   flex-direction: column;
   gap: 12px;
   color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.025rem;
+  line-height: 1.75;
 }
 
 /* --------------------------------------------------------------------------
-   10. Skills Section
+   11. Skills Section
    -------------------------------------------------------------------------- */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 11px;
 }
 
 .skill-tag {
   background: var(--badge-bg);
   color: var(--badge-text);
   border: 1px solid var(--badge-border);
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius-full);
-  font-size: 0.875rem;
+  font-size: 0.885rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   transition: var(--transition);
 }
 
 .skill-tag:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.05);
   background: var(--accent);
   color: #ffffff;
   border-color: var(--accent);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
 }
 
 /* --------------------------------------------------------------------------
-   11. Projects Showcase Section
+   12. Projects Showcase Section
    -------------------------------------------------------------------------- */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 18px;
 }
 
 .project-card {
+  position: relative;
   background: var(--bg-subtle);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 20px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  overflow: hidden;
   transition: var(--transition);
 }
 
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .project-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--border-hover);
   box-shadow: var(--shadow-md);
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 .project-header {
@@ -556,7 +661,7 @@ body:has(#theme-toggle:checked) .text-to-light,
 }
 
 .project-name {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-main);
 }
@@ -564,31 +669,31 @@ body:has(#theme-toggle:checked) .text-to-light,
 .project-badge {
   background: var(--accent-light);
   color: var(--accent);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 3px 10px;
+  font-size: 0.775rem;
+  font-weight: 700;
+  padding: 4px 12px;
   border-radius: var(--radius-full);
 }
 
 .project-desc {
-  font-size: 0.925rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 7px;
 }
 
 .project-tags .tag {
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.775rem;
+  font-weight: 600;
   background: var(--bg-card);
   color: var(--text-muted);
   border: 1px solid var(--border-color);
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: var(--radius-sm);
 }
 
@@ -598,25 +703,25 @@ body:has(#theme-toggle:checked) .text-to-light,
 
 .project-link {
   color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.925rem;
+  font-weight: 700;
   text-decoration: none;
-  transition: var(--transition);
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  transition: var(--transition);
 }
 
 .project-link:hover {
   color: var(--accent-hover);
-  text-decoration: underline;
+  transform: translateX(-4px);
 }
 
 /* --------------------------------------------------------------------------
-   12. Contact & Social Links
+   13. Contact & Social Grid
    -------------------------------------------------------------------------- */
 .contact-subtitle {
-  font-size: 0.95rem;
+  font-size: 0.975rem;
   color: var(--text-muted);
 }
 
@@ -624,7 +729,7 @@ body:has(#theme-toggle:checked) .text-to-light,
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 15px;
 }
 
 .contact-item {
@@ -635,8 +740,8 @@ body:has(#theme-toggle:checked) .text-to-light,
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 16px;
+  gap: 15px;
+  padding: 16px 18px;
   background: var(--bg-subtle);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -648,16 +753,16 @@ body:has(#theme-toggle:checked) .text-to-light,
 .contact-link:hover {
   background: var(--bg-subtle-hover);
   border-color: var(--border-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
 }
 
 .contact-icon-box {
-  width: 42px;
-  height: 42px;
-  background: var(--accent-light);
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(99, 102, 241, 0.15));
   color: var(--accent);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -666,13 +771,15 @@ body:has(#theme-toggle:checked) .text-to-light,
 }
 
 .contact-link:hover .contact-icon-box {
-  background: var(--accent);
+  background: var(--accent-gradient);
   color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  transform: scale(1.08);
 }
 
 .contact-svg {
-  width: 20px;
-  height: 20px;
+  width: 21px;
+  height: 21px;
 }
 
 .contact-details {
@@ -684,12 +791,12 @@ body:has(#theme-toggle:checked) .text-to-light,
 .contact-label {
   font-size: 0.775rem;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .contact-value {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.975rem;
+  font-weight: 700;
   color: var(--text-main);
   white-space: nowrap;
   overflow: hidden;
@@ -697,21 +804,21 @@ body:has(#theme-toggle:checked) .text-to-light,
 }
 
 /* --------------------------------------------------------------------------
-   13. Footer
+   14. Footer
    -------------------------------------------------------------------------- */
 .card-footer {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 22px;
   border-top: 1px solid var(--border-color);
 }
 
 .footer-credit {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
 }
 
 /* --------------------------------------------------------------------------
-   14. Keyboard Accessibility Focus Rings
+   15. Accessibility Focus Rings
    -------------------------------------------------------------------------- */
 a:focus-visible,
 button:focus-visible,
@@ -721,16 +828,16 @@ label:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   15. Responsive Media Queries
+   16. Responsive Media Queries
    -------------------------------------------------------------------------- */
-/* Tablets & Large Mobile (< 768px) */
+/* Tablets (< 768px) */
 @media (max-width: 768px) {
   .page-container {
-    padding: 24px 16px;
+    padding: 30px 16px;
   }
 
   .business-card {
-    padding: 28px 20px;
+    padding: 30px 22px;
     gap: 28px;
   }
 
@@ -777,11 +884,11 @@ label:focus-visible {
   }
 
   .profile-name {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .profile-title {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .skills-grid {
