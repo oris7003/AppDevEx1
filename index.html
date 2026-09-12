@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="כרטיס ביקור דיגיטלי אישי - סטודנט למדעי המחשב ומפתח Front-End">
+  <title>כרטיס ביקור דיגיטלי | אורי שדה</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- External Stylesheet (Strict separation of CSS and HTML) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-wrapper">
+
+  <!-- Pure CSS Theme Toggle Switch (No JavaScript) -->
+  <!-- Checkbox state controls light/dark mode styles via CSS selectors -->
+  <input type="checkbox" id="theme-toggle" class="theme-toggle-input" aria-label="החלף מצב תצוגה כהה או בהיר">
+
+  <!-- Main Page Container -->
+  <div class="page-container">
+
+    <!-- Digital Business Card Wrapper -->
+    <main class="business-card" role="main">
+
+      <!-- Top Navigation & Controls Bar -->
+      <nav class="card-toolbar" aria-label="סרגל כלים">
+        <div class="status-indicator">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="status-text">זמין להצעות עבודה</span>
+        </div>
+
+        <!-- Theme Toggle Button (Labels native input for keyboard/touch interaction) -->
+        <label for="theme-toggle" class="theme-toggle-btn" title="לחץ להחלפה בין מצב כהה לבהיר">
+          <span class="toggle-track" aria-hidden="true">
+            <span class="toggle-thumb">
+              <span class="thumb-icon icon-sun" aria-hidden="true">☀️</span>
+              <span class="thumb-icon icon-moon" aria-hidden="true">🌙</span>
+            </span>
+          </span>
+          <span class="toggle-label-text">
+            <span class="text-to-dark">מצב כהה</span>
+            <span class="text-to-light">מצב בהיר</span>
+          </span>
+        </label>
+      </nav>
+
+      <!-- Profile Header Section -->
+      <header class="profile-header">
+        <div class="avatar-container">
+          <!-- Profile Picture (SVG Vector Illustration) -->
+          <img src="assets/avatar.svg" alt="תמונת פרופיל של אורי שדה" class="profile-avatar" width="130" height="130">
+          <span class="avatar-badge" title="Verified Developer" aria-label="מפתח מאומת">✓</span>
+        </div>
+
+        <div class="profile-intro">
+          <h1 class="profile-name">אורי שדה</h1>
+          <p class="profile-title">סטודנט למדעי המחשב & מפתח Front-End</p>
+          <div class="location-badge">
+            <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>מרכז, ישראל</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Quick Action Buttons -->
+      <div class="action-buttons-group">
+        <!-- Direct Phone Call Link -->
+        <a href="tel:+972501234567" class="btn btn-primary" title="התקשר עכשיו">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>שיחת טלפון</span>
+        </a>
+
+        <!-- Direct Email Link -->
+        <a href="mailto:oris7003@gmail.com" class="btn btn-secondary" title="שלח דוא״ל">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>שליחת מייל</span>
+        </a>
+      </div>
+
+      <!-- About Me Section -->
+      <section class="card-section about-section" aria-labelledby="about-heading">
+        <h2 id="about-heading" class="section-title">
+          <span class="title-icon" aria-hidden="true">💡</span>
+          קצת עליי
+        </h2>
+        <div class="about-content">
+          <p>
+            שלום! שמי אורי, סטודנט שנה ג׳ למדעי המחשב בעל תשוקה עמוקה לפיתוח ממשקי משתמש (Front-End) וטכנולוגיות ווב מודרניות.
+            אני אוהב לבנות מוצרים דיגיטליים אינטואיטיביים, רספונסיביים ומהירים, תוך הקפדה על קוד נקי, ארכיטקטורת CSS מתקדמת ונגישות ברמה גבוהה.
+          </p>
+          <p>
+            בעל ניסיון במימוש ממשקי משתמש עשירים ב-HTML5 ו-CSS3, עבודה עם מערכות בקרת גרסאות (Git/GitHub), ופתרון בעיות אלגוריתמיות. מחפש את ההזדמנות המקצועית הבאה שלי כחלק מצוות פיתוח מוביל.
+          </p>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="card-section skills-section" aria-labelledby="skills-heading">
+        <h2 id="skills-heading" class="section-title">
+          <span class="title-icon" aria-hidden="true">🛠️</span>
+          כישורים וטכנולוגיות
+        </h2>
+        <div class="skills-grid">
+          <span class="skill-tag">HTML5 Semantic</span>
+          <span class="skill-tag">Modern CSS3</span>
+          <span class="skill-tag">Flexbox & Grid</span>
+          <span class="skill-tag">Responsive Design</span>
+          <span class="skill-tag">Git & GitHub</span>
+          <span class="skill-tag">UI / UX Design</span>
+          <span class="skill-tag">Web Accessibility (a11y)</span>
+          <span class="skill-tag">Performance Tuning</span>
+        </div>
+      </section>
+
+      <!-- Projects Showcase Section -->
+      <section class="card-section projects-section" aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="section-title">
+          <span class="title-icon" aria-hidden="true">🚀</span>
+          פרויקטים נבחרים
+        </h2>
+        <div class="projects-grid">
+
+          <!-- Project Card 1 -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-badge">פרויקט ווב</span>
+              <h3 class="project-name">כרטיס ביקור דיגיטלי</h3>
+            </div>
+            <p class="project-desc">
+              דף נחיתה אישי מודרני ורספונסיבי הבנוי כולו ב-HTML5 ו-CSS3 טהור (ללא JS), הכולל החלפת מצבי כהה/בהיר חלקה ועיצוב מוקפד.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Zero-JS Toggle</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/oris7003/AppDevEx1" target="_blank" rel="noopener noreferrer" class="project-link">
+                קוד מקור ב-GitHub &larr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-badge">מערכת ניהול</span>
+              <h3 class="project-name">מערכת ניהול משימות - TaskFlow</h3>
+            </div>
+            <p class="project-desc">
+              ממשק משתמש אלגנטי למעקב אחר התקדמות משימות ולוחות זמנים, מותאם באופן מלא לטלפונים ניידים ולמסכי מחשב רחבים.
+            </p>
+            <div class="project-tags">
+              <span class="tag">CSS Grid</span>
+              <span class="tag">UI Components</span>
+              <span class="tag">Responsive</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/oris7003/taskflow-ui" target="_blank" rel="noopener noreferrer" class="project-link">
+                קוד מקור ב-GitHub &larr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-badge">דשבורד נתונים</span>
+              <h3 class="project-name">לוח מחווני מזג אוויר</h3>
+            </div>
+            <p class="project-desc">
+              תצוגת כרטיסי מידע ואינדיקטורים גרפיים לתחזיות אקלים, תוך שימוש במשתני CSS (Custom Properties) להתאמת צבעים דינמית.
+            </p>
+            <div class="project-tags">
+              <span class="tag">CSS Variables</span>
+              <span class="tag">Layouts</span>
+              <span class="tag">Design Tokens</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/oris7003/weather-dashboard" target="_blank" rel="noopener noreferrer" class="project-link">
+                קוד מקור ב-GitHub &larr;
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Contact & Social Media Section -->
+      <section class="card-section contact-section" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="section-title">
+          <span class="title-icon" aria-hidden="true">📬</span>
+          פרטי יצירת קשר
+        </h2>
+        <p class="contact-subtitle">מעוניינים לשוחח או לבחון שיתוף פעולה? מוזמנים ליצור איתי קשר:</p>
+
+        <ul class="contact-list">
+
+          <!-- Phone Link -->
+          <li class="contact-item">
+            <a href="tel:+972501234567" class="contact-link" title="התקשר">
+              <div class="contact-icon-box">
+                <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">טלפון נייד:</span>
+                <span class="contact-value" dir="ltr">050-1234567</span>
+              </div>
+            </a>
+          </li>
+
+          <!-- Email Link -->
+          <li class="contact-item">
+            <a href="mailto:oris7003@gmail.com" class="contact-link" title="שלח דוא״ל">
+              <div class="contact-icon-box">
+                <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">דואר אלקטרוני:</span>
+                <span class="contact-value" dir="ltr">oris7003@gmail.com</span>
+              </div>
+            </a>
+          </li>
+
+          <!-- GitHub Link -->
+          <li class="contact-item">
+            <a href="https://github.com/oris7003" target="_blank" rel="noopener noreferrer" class="contact-link" title="פרופיל GitHub">
+              <div class="contact-icon-box">
+                <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">פרופיל GitHub:</span>
+                <span class="contact-value" dir="ltr">github.com/oris7003</span>
+              </div>
+            </a>
+          </li>
+
+          <!-- LinkedIn Link -->
+          <li class="contact-item">
+            <a href="https://linkedin.com/in/ori-sade" target="_blank" rel="noopener noreferrer" class="contact-link" title="פרופיל LinkedIn">
+              <div class="contact-icon-box">
+                <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">פרופיל LinkedIn:</span>
+                <span class="contact-value" dir="ltr">linkedin.com/in/ori-sade</span>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer class="card-footer">
+        <p class="footer-credit">
+          נבנה באמצעות <strong>HTML5</strong> ו-<strong>CSS3</strong> בלבד (ללא JavaScript) • 2026
+        </p>
+      </footer>
+
+    </main>
+  </div>
+
+</body>
+</html>
